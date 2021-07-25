@@ -10,14 +10,15 @@ import java.util.Optional;
 public interface TransactionRepository extends JpaRepository<Transaction, Integer> {
 
     @Override
-    Optional<Transaction> findById(Integer id);
+    Transaction save(Transaction transaction);
 
+    @Override
     List<Transaction> findAll();
 
-    Optional<List<Transaction>> findAllByDate(LocalDate date);
+    @Override
+    Optional<Transaction> findById(Integer id);
 
     Optional<List<Transaction>> findAllByVisitor_Id(Integer id);
 
-    @Override
-    Transaction save(Transaction transaction);
+    Optional<List<Transaction>> findAllByDate(LocalDate date);
 }

@@ -10,8 +10,12 @@ import java.util.Optional;
 public interface PrepaidRepository extends JpaRepository<Prepaid, Integer> {
 
     @Override
+    Prepaid save(Prepaid prepaid);
+
+    @Override
     List<Prepaid> findAll();
 
+    @Override
     Optional<Prepaid> findById(Integer id);
 
     Optional<Prepaid> findByStartDate(LocalDate date);

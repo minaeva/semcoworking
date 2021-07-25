@@ -11,15 +11,15 @@ import java.util.Optional;
 public interface VisitorRepository extends JpaRepository<Visitor, Integer> {
 
     @Override
+    Visitor save(Visitor visitor);
+
+    @Override
     List<Visitor> findAll();
 
     @Override
     Optional<Visitor> findById(Integer integer);
 
     Optional<Visitor> findByPrepaid(Prepaid prepaid);
-
-    @Override
-    Visitor save(Visitor visitor);
 
     void deleteById(Integer id);
 }
